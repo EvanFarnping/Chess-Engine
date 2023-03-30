@@ -1,0 +1,36 @@
+Below is a documentation that explains design choices, 
+implementations, notation, chess terminology, and other details.
+
+Purpose:
+The purpose of this project is to learn more about python implementations.
+The focus is to create an optimal (while still being easy to understand)
+    chess engine that an A.I/algorithm can play, and in the future improve
+    similar to that of something like AlphaZero.
+    While Python is certainly not the best choice for this, the high-level
+    language provides the ability to be more understanding/easier to implement.
+    Then again, the main purpose is to simply learn more about Python and practice with it.    
+
+Design:
+It could be better to have each piece be a class (subclass?) (dataclass?),
+    where each piece has a property of legal moves and other features if
+    custom chess pieces are something desired. This would probably be easier
+    for customization but could overall be slower (less efficient)...
+
+In terms of efficiency (ignoring the use of python), creating a data
+    board with all 64 positions (0,0)(0,1)(etc) instead of calculating if the
+    moves are in the board may be better as its possibly optimal 
+    to store data for each piece and space in 64 bit long and then build 
+    the board around that (Maybe Ver. 3?)
+
+There are a lot of ways to implement the checking system. 
+    The one created in this case is not the most optimal, but is easy to understand.
+    A way to improve this is to check from the king, instead of the pieces attacking.
+
+Notation:
+[0]means what color, [1] means what type in reference to the pieces. 
+    For example, piece_moved[0] would mean a white piece
+                 piece_moved[1] would refer to the type, such as a pawn
+                 black_king = "bK", where [0] is "b" and [1] is "K"
+
+Calculating rows and columns (row and col) are based on how the board is created,
+    where from top to bottom (rows) is 0 to 7, and left to right (cols) is 0 to 7.
